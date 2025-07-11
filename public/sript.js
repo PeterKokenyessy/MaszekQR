@@ -1,5 +1,5 @@
 let products = {};
-const baseURL = 'http://localhost:3000/info';
+
 
 function categoriaAddBt (){
     const categoriInput = document.getElementById('categoriInput');
@@ -44,6 +44,7 @@ async function getDataFromServer (){
 }
 
 async function sendDataToServer() {
+    console.log('Méret (KB):', JSON.stringify(products).length / 1024);
     try {
         const res = await fetch('http://localhost:3000/ujadat', {
             method: 'POST',
@@ -75,6 +76,20 @@ function deleteTr (e) {
     sendDataToServer();
     productTr.remove();
 }
+function deleteDiv(e) {
+    const deletedDiv = e.target.closest("div");
+    const tmpProducts = {};
+    for(const category in products){
+        if(category === deletedDiv.id && products[category].length <= 0){
+            deletedDiv.remove();
+        } else {
+            tmpProducts[category] = products[category];
+        }
+    }
+    
+    products = tmpProducts
+    sendDataToServer()
+}
 
 function displayProducts (){
     const dispalyContanier = document.getElementById('dispalyContanier');
@@ -84,7 +99,14 @@ function displayProducts (){
 
         const categoryDiv = document.createElement('div');
         categoryDiv.textContent = category;
+        categoryDiv.id = category;
 
+        const deleteDivA = document.createElement("a");
+        deleteDivA.textContent = "❌";
+        deleteDivA.addEventListener("click",(e) =>{
+            deleteDiv(e);
+        });
+        
         const table = document.createElement('table');
         products[category].forEach(product => {
             const tr = document.createElement('tr');
@@ -101,9 +123,10 @@ function displayProducts (){
                 deleteTr(e)                
             });
             tr.appendChild(deleteBtn);
-
             table.appendChild(tr);
         });
+
+        categoryDiv.appendChild(deleteDivA);
         categoryDiv.appendChild(table);
         dispalyContanier.appendChild(categoryDiv);
     }
