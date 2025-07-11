@@ -1,1 +1,25 @@
-{}
+{
+  "asda": [
+    {
+      "id": "96ce8e2e-cab2-48e1-84d5-e0d56671632b",
+      "name": "asdad",
+      "price": "21321",
+      "description": "asdasd",
+      "available": true
+    },
+    {
+      "id": "eb14b672-76ed-4368-b71b-9a94c2bbd4bf",
+      "name": "asdad",
+      "price": "21321",
+      "description": "asdasd",
+      "available": true
+    },
+    {
+      "id": "a5a7a998-3eef-4320-a90f-98ba89fb9eb6",
+      "name": "asdasd",
+      "price": "3213123",
+      "description": "asdasd",
+      "available": true
+    }
+  ]
+}

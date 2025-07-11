@@ -1,5 +1,5 @@
 const express = require('express');
-const fs = require('fs').promises; // aszinkron fájlkezelés
+const fs = require('fs').promises; 
 const app = express();
 const port = 3000;
 const dbFile = 'dataBase.txt';
@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-// Teljes fájl felülírás POST-tal
+
 app.post('/ujadat', async (req, res) => {
     const input = req.body;
 
@@ -21,7 +21,7 @@ app.post('/ujadat', async (req, res) => {
     }
 });
 
-// Teljes fájl visszaolvasása
+
 app.get('/output', async (req, res) => {
     try {
         const raw = await fs.readFile(dbFile, 'utf8');
