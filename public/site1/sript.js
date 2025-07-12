@@ -4,6 +4,7 @@ let products = {};
 function categoriaAddBt() {
     const categoriInput = document.getElementById('categoriInput');
     const category = categoriInput.value.trim();
+    categoriInput.value = ""
     if (products[category]) {
         alert("Ez a kategória már létezik.");
     } else {
@@ -18,6 +19,7 @@ function categoriaAddBt() {
 function addSelectcategory() {
     const categorySelect = document.getElementById("type");
     categorySelect.innerHTML = ""; // az elsot is torli, de mukodik.
+
 
     for (const category in products) {
         const option = document.createElement("option");
@@ -86,7 +88,8 @@ function deleteDiv(e) {
         }
     }
 
-    products = tmpProducts
+    products = tmpProducts;
+    addSelectcategory()
     sendDataToServer()
 }
 
@@ -175,6 +178,9 @@ function addBtnLoad() { // kemeny kivetelkezeles
 
     displayProducts();
     sendDataToServer();
+    nameInput.value = "";
+    priceInput.value = "";
+    descriptionInput.value = "";
 }
 
 function loadEvent() {

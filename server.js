@@ -6,7 +6,10 @@ const dbFile = 'dataBase.txt';
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public'));
+app.use('/site1', express.static('public/site1'));
+app.use('/site2', express.static('public/site2'));
+
+
 
 
 app.post('/ujadat', async (req, res) => {
@@ -35,4 +38,7 @@ app.get('/output', async (req, res) => {
 
 app.listen(port, () => {
     console.log(`Szerver fut: http://localhost:${port}`);
+    console.log(`Szerver fut: http://localhost:${port}/site1`);
+    console.log(`Szerver fut: http://localhost:${port}/site2`);
+
 });
