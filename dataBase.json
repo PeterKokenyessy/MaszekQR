@@ -1,0 +1,27 @@
+{
+  "sada": [
+    {
+      "id": "26946bf2-d935-46c3-8085-5e9d3b0af713",
+      "name": "sadad",
+      "price": "2342",
+      "description": "asfasda",
+      "available": true
+    },
+    {
+      "id": "849385b5-8c8b-4bd2-a669-a962b7bc65a4",
+      "name": "asdasd",
+      "price": "2134",
+      "description": "asdasd",
+      "available": true
+    }
+  ],
+  "sadfd": [
+    {
+      "id": "c59dc6f1-50b1-4c63-a8ac-c40c98ca0a0e",
+      "name": "dasda",
+      "price": "32432",
+      "description": "asdad",
+      "available": true
+    }
+  ]
+}

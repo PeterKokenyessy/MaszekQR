@@ -2,12 +2,14 @@ const express = require('express');
 const fs = require('fs').promises; 
 const app = express();
 const port = 3000;
-const dbFile = 'dataBase.txt';
+require('dotenv').config();
+const dbFile = 'dataBase.json';
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use('/site1', express.static('public/site1'));
-app.use('/site2', express.static('public/site2'));
+app.use('/szerkeszto', express.static('public/szerkeszto'));
+app.use('/', express.static('public/menu'));
 
 
 
@@ -38,7 +40,7 @@ app.get('/output', async (req, res) => {
 
 app.listen(port, () => {
     console.log(`Szerver fut: http://localhost:${port}`);
-    console.log(`Szerver fut: http://localhost:${port}/site1`);
-    console.log(`Szerver fut: http://localhost:${port}/site2`);
+    console.log(`Szerver fut: http://localhost:${port}/szerkeszto`);
+
 
 });
